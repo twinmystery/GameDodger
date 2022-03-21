@@ -41,7 +41,7 @@ func _process(delta):
 func _on_Player_body_entered(body):
 	hide() # Player disappears after being hit.
 	emit_signal("hit")
-	$CollisionShape2D.set_derferred("disable", true)
+	$CollisionShape2D.set_deferred("disable", true)
 	
 func start(pos):
 	position = pos
