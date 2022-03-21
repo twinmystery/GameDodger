@@ -10,7 +10,7 @@ func _ready():
 	hide()
 
 func _process(delta):
-	var velocity = Vector2()
+	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -39,9 +39,9 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	hide()
+	hide() # Player disappears after being hit.
 	emit_signal("hit")
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_derferred("disable", true)
 	
 func start(pos):
 	position = pos
